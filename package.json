@@ -1,7 +1,7 @@
 {
   "name": "orangebox-cabmin",
   "version": "0.0.1",
-  "description": "Simple node orangebox admin-panel",
+  "description": "Simple control panel for Node.js based on OrangeBox",
   "homepage": "http://cabmin.ru",
   "author": {
     "name": "Oleksiy Chechel",
@@ -19,11 +19,10 @@
     "node": ">= 0.11.13"
   },
   "dependencies": {
-    "async": "*",
     "highlight.js": "^8.3.0",
     "marked": "^0.3.2",
     "orangebox": "*",
-    "press": "0.0.2",
+    "press": "*",
     "swig": "*"
   },
   "keywords": [

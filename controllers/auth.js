@@ -34,11 +34,13 @@ exports.test = function(req, res, next) {
 			res.cookie('hash', hash,  req.cookies.remember ? { maxAge: 3 * utils.YEAR, path: req.options.baseUrl} : {path: req.options.baseUrl});
 			next();
 		} else if (login && req.options.users[login]) {
+			res.clearCookie('hash', {path: req.options.baseUrl});
 			var settings = req.options.users[login];
 			req.options.login = login;
 			req.options.userpic = settings.userpic || parseInt( Math.random() * 19 + 1, 10);
 			render_lock (req, res, next);
 		} else {
+			res.clearCookie('hash', {path: req.options.baseUrl});
 			render_auth (req, res, next);
 		}
 	}

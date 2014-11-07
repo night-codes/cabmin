@@ -1,10 +1,10 @@
 # Cabmin for OrangeBox (orangebox-cabmin)
 Simple control panel for [Node.js](http://nodejs.org) based on [OrangeBox](https://github.com/mirrr/orangebox) 
-![Cabmin screenshot](../static-cb/documents/screen.png)
-![Cabmin screenshot 2](../static-cb/documents/screen2.png) 
+![Cabmin screenshot](http://msrv.su/files/screen.png)
+![Cabmin screenshot 2](http://msrv.su/files/screen2.png) 
 Lightweight  web application framework on clusters with file server.
    
-   
+    
 
 ## How To Install   
 ```bash

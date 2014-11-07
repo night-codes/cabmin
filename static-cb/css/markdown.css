@@ -1,0 +1,47 @@
+/*@import url("http://fonts.googleapis.com/css?family=Droid+Sans+Mono");*/
+
+pre, code {
+	font-family: 'Droid Sans Mono';
+	font-size: 92%;
+	background: #f7f7f7;
+	padding: 1.3em 1.5em 1.5em;
+	/*max-height: 800px;*/
+	overflow: auto;
+	display: block;
+}
+pre>code {
+	background: transparent;
+	border: none;
+	margin: -1.3em -1.5em -1.5em;
+	max-height: 100%;
+}
+pre>i {
+	color: #ef4300;
+}
+pre>span {
+	color: #0C79B9;
+}
+.markdown h1 {
+	padding-top: 35px;
+	padding-bottom: 20px;
+	display: block;
+	font-size: 220%;
+	border-bottom: 1px solid #f0f0f0;
+}
+.markdown h2 {
+	padding-top: 25px;
+	padding-bottom: 10px;
+	display: block;
+	font-size: 170%;
+	border-bottom: 1px solid #f0f0f0;
+}
+.markdown h3 {
+	padding-top: 15px;
+	padding-bottom: 5px;
+	display: block;
+	font-size: 145%;
+}
+.markdown>*:first-child {
+	padding-top: 0px;
+	margin-top: 0px;
+}

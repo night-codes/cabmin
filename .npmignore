@@ -1,0 +1,6 @@
+# IDE project files
+*.sublime-*
+nbproject/
+
+# Node modules
+node_modules*

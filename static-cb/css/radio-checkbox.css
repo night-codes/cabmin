@@ -1,0 +1,70 @@
+
+/* Custom checkbox */
+.checkbox {
+	display: inline;
+	font-size: 20px;
+	line-height: 20px;
+	cursor: pointer;
+	cursor: hand;
+}
+.checkbox .mark {display: inline;}
+
+.checkbox img {vertical-align: middle; width: 20px; height: 20px;}
+.checkbox img{background: transparent url(../img/checkbox.png) no-repeat;}
+
+.checkbox img{
+	background-position: 0px 0px;
+	border: none;
+	margin: 5px 5px 7px 3px;
+}
+.checkbox-hover img{
+	background-position: -20px 0px;
+	border: none;
+}
+.checkbox-checked img{
+	background-position: 0px -20px;
+}
+.checkbox-checked .checkbox-hover img {
+	background-position: -20px -20px;
+}
+
+.checkbox-disabled img{
+	background-position: 0px -40px;
+}
+.checkbox-checked .checkbox-disabled img{
+	background-position: 0px -60px;
+}
+
+
+
+
+/* Custom radio buttons */
+
+
+.radio {display: inline; font-size: 20px; line-height: 20px; cursor: pointer; cursor: hand;}
+.radio .mark {display: inline;}
+
+.radio img {vertical-align: middle; width: 20px; height: 20px;}
+.radio img{background: transparent url(../img/radio.png) no-repeat;}
+
+.radio img{
+	background-position: 0px 0px;
+	border: none;
+	margin: 5px 5px 7px 3px;
+}
+.radio-hover img{
+	background-position: -20px 0px;
+}
+.radio-checked img{
+	background-position: 0px -20px;
+}
+.radio-checked .radio-hover img {
+	background-position: -20px -20px;
+}
+
+.radio-disabled img{
+	background-position: 0px -40px;
+}
+.radio-checked .radio-disabled img{
+	background-position: 0px -60px;
+}

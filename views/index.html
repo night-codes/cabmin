@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cabmin - {{ title }}</title>
+	<style type="text/css" >@import url("{{ staticUrl }}/css/style.css");</style>
+	<style type="text/css" >@import url("{{ staticUrl }}/css/hi/{{ syntax }}.css");</style>
+    <script type="text/javascript"> window.baseUrl="{{ baseUrl }}"; window.staticUrl="{{ staticUrl }}"; </script>
+	<script src="{{ staticUrl }}/js/jquery-2.1.1.min.js"></script>
+	<script src="{{ staticUrl }}/js/jquery.checkbox.js"></script>
+    <script src="{{ staticUrl }}/js/common.js"></script>
+    {% if css %}<style type="text/css" >@import url("{{ css }}");</style>{% endif %}
+
+
+	<link rel="icon" type="image/ico" href="{{ staticUrl }}/favicon.ico">
+	<!--[if lt IE 9]>
+		<script src="{{ staticUrl }}/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<header class="noise">
+		<div class="body-max">
+			<a href="{{ baseUrl }}" class="logo">
+			<h1 title="# Cabmin"># <b>Cab</b>min</h1>
+			<small>Admin area for <b>{{ title }}</b></small>
+			</a>
+
+
+			<div class="btn-group right">
+				{% if modules.profile %}<a class="btn btn-primary" href="{{ baseUrl }}/profile">{% else %}<span class="btn btn-primary">{% endif %}
+					<i class="fa fa-user fa-fw "></i> {% if not noAuth %}{{ user.login }}{% else %}User{% endif %}
+				{% if modules.profile %}</a>{% else %}</span>{% endif %}
+
+				<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+				<span class="fa fa-caret-down"></span></a>
+				<ul class="dropdown-menu">
+					{% for item in menu %}
+						{% if item.title and item.showInMenu and item.dropmenu %}
+							{% if item.topDivider %}<li class="divider"></li>{% endif %}
+							<li><a href="{{ item.url }}">{{ item.title }}   {% if item.count %}<span>{{ item.count }}</span>{% endif %}</a></li>
+							{% if item.bottomDivider %}<li class="divider"></li>{% endif %}
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</header>
+	<main class="body-max">
+		<aside>
+			<nav>
+				{% for item in menu %}
+					{% if item.title and item.showInMenu and not item.dropmenu %}
+						<a  {% if item.active %}class="active"{% endif %}  href="{{ item.url }}">{{ item.title }}   {% if item.count %}<span>{{ item.count }}</span>{% endif %}  {% if item.note %} <small>{{ item.note }}</small>{% endif %}</a>
+					{% endif %}
+				{% endfor %}
+			</nav>
+		</aside>
+		<article>
+			<div>
+				{% if page.title and page.showTitle %}<h1>{{ page.title }}</h1>{% endif %}
+				{{ data }}
+
+			</div>
+		</article>
+	</main>
+	<footer></footer>
+	<script type="text/javascript">
+		$('input:checkbox').checkbox({cls:'checkbox', empty: '{{ staticUrl }}/img/empty.png'});
+		$('input:radio').checkbox({cls:'radio', empty: '{{ staticUrl }}/img/empty.png'});
+	</script>
+</body>
+</html>

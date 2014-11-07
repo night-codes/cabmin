@@ -1,0 +1,48 @@
+{
+  "name": "orangebox-cabmin",
+  "version": "0.0.1",
+  "description": "Simple node orangebox admin-panel",
+  "homepage": "http://cabmin.ru",
+  "author": {
+    "name": "Oleksiy Chechel",
+    "email": "alex.mirrr@gmail.com",
+    "skype": "mirrr-2"
+  },
+  "contributors": [
+    {
+      "name": "Oleksiy Chechel",
+      "email": "alex.mirrr@gmail.com",
+      "skype": "mirrr-2"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.11.13"
+  },
+  "dependencies": {
+    "async": "*",
+    "highlight.js": "^8.3.0",
+    "marked": "^0.3.2",
+    "orangebox": "*",
+    "press": "0.0.2",
+    "swig": "*"
+  },
+  "keywords": [
+    "admin",
+    "panel",
+    "cabinet",
+    "control",
+    "cms"
+  ],
+  "maintainers": [
+    {
+      "name": "Oleksiy Chechel",
+      "email": "alex.mirrr@gmail.com",
+      "skype": "mirrr-2"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@git.ohtml.ru:bboywilld/orangebox-cabmin.git"
+  },
+  "_id": "orangebox-cabmin@0.0.1"
+}

@@ -1,0 +1,104 @@
+body {
+
+    height: 100%;
+    width: 100%;
+    background: #eeeeee;
+}
+.auth-wrap {
+	display: table;
+    position: absolute;
+    height: 90%;
+    width: 100%;
+    background: #eeeeee;
+}
+.auth {
+	position: relative;
+	display: table-cell;
+    vertical-align: middle;
+    background: #eeeeee;
+}
+.win {
+	margin: 0 auto;
+	width: 30em;
+    background: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+main {
+	padding: 0.3em 1.2em 2em;
+}
+main h1 {
+	font-size: 150%;
+	width: auto;
+	margin: 0.7em 0em;
+}
+header {
+	margin-bottom: 0px;
+}
+button, input[type=submit] {
+	background: #60a945;
+	float: right;
+	margin-bottom: 1.2em;
+	margin-right: 0;
+	outline-style: none;
+	border: none !important;
+}
+input[type=text], input[type=password] {
+	width: 95%;
+	background: #ffffff;
+}
+.remember {
+	width: auto;
+	float: left;
+	padding-top: 1em;
+}
+header .logo>small {
+	display: block;
+	width: auto;
+	max-width: 18em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-top: 7px;
+	padding-right: 0px;
+}
+.login-msg {
+	position: relative;
+	top: -0.5em;
+	margin-bottom: 1em;
+	display: inline-block;
+	font-size: 84%;
+	float: left;
+}
+.e{
+	box-shadow:         1px 1px 13px rgba(0, 0, 0, 0.57);
+	transition: opacity 0.3s linear;
+}
+.right-side {
+	display: inline-block;
+	width: auto;
+}
+img.userpic {
+	height: 3.4em;
+	display: inline-block;
+	margin: 1em;
+	margin-left: 0px;
+	vertical-align: middle;
+	float: left;
+}
+label {
+	width: 100% !important;
+}
+h1 .fa-refresh {
+	color: #dddddd;
+	cursor: pointer;
+	font-size: 85%;
+	vertical-align: middle;
+	position: relative;
+	top: -2px;
+}
+h1 .fa-refresh:hover {
+	color: #4e9a31;
+}
+div {
+	text-align: middle;
+}

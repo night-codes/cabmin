@@ -1,4 +1,4 @@
-# Cabmin for OrangeBox (orangebox-cabmin)
+# Cabmin for OrangeBox (cabmin)
 Simple control panel for [Node.js](http://nodejs.org) based on [OrangeBox](https://github.com/mirrr/orangebox) 
 ![Cabmin screenshot](http://msrv.su/files/screen.png)
 ![Cabmin screenshot 2](http://msrv.su/files/screen2.png) 
@@ -8,7 +8,7 @@ Lightweight  web application framework on clusters with file server.
 
 ## How To Install   
 ```bash
-npm install orangebox-cabmin
+npm install cabmin
 ```
 
    
@@ -20,7 +20,7 @@ npm install orangebox-cabmin
 **index.js**
 ```js
 var app    = require('orangebox').app();
-var cabmin = require('orangebox-cabmin');
+var cabmin = require('cabmin');
 
 var users = {
     admin: {
@@ -47,7 +47,7 @@ app.listen(8080);
    
 **password.js**
 ```js
-var cabmin = require('orangebox-cabmin');
+var cabmin = require('cabmin');
 console.log(cabmin.hash('password123'));
 ```
 

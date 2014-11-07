@@ -15,6 +15,6 @@ module.exports = function(router) {
 
 
 	// Редиректим с main на нужный модуль (если нужно)
-	router.use(opt.baseUrl, main);
+	router.use(opt.baseUrl, auth, main);
 
 };

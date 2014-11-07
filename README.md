@@ -13,6 +13,74 @@ npm install orangebox-cabmin
 
    
 
+
+## Getting Started
+
+
+**index.js**
+```js
+var app    = require('orangebox').app();
+var cabmin = require('orangebox-cabmin');
+
+var users = {
+    admin: {
+        userpic: 17,
+        hash:  '9sg87sf68.....' //password hash 
+    }
+};
+
+app.use(cabmin.init({
+    title    : 'mysite',
+    mainPage : '/news',
+    path     : __dirname + '/controllers',
+    views    : __dirname + '/views',
+    users    : users
+}));
+
+app.get('/', function (req, res) {
+  res.send('This is site frontend');
+});
+app.listen(8080);
+```
+   
+*For hash generation you can use script:*
+   
+**password.js**
+```js
+var cabmin = require('orangebox-cabmin');
+console.log(cabmin.hash('password123'));
+```
+
+
+ 
+**/controllers/news.js**   
+   
+```js
+module.exports.info = {
+    "news": {
+        title: 'News panel',
+        method: newsRender,
+        // dropmenu: true,
+        order: 1,
+        count: 50
+    }
+};
+
+function newsRender (req, res, next) {
+    res.render({data: 'This is backend', test: 'Test, test'}, 'newsTPL');
+    next();
+}
+```
+   
+**/views/newsTPL.html**
+
+```html
+<div><img src="https://dl.dropboxusercontent.com/u/68595887/a/t.png" /></div>
+<div class="wow"><i>{{ data }}</i></div>
+<div class="num"><b>{{ test }}</b></div>
+```
+   
+   
 ## Examples
 Coming soon...
    

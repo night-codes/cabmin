@@ -1,4 +1,4 @@
-# Cabmin for OrangeBox (cabmin)
+# Cabmin
 Simple control panel for [Node.js](http://nodejs.org) based on [OrangeBox](https://github.com/mirrr/orangebox) 
 ![Cabmin screenshot](http://msrv.su/files/screen.png)
 ![Cabmin screenshot 2](http://msrv.su/files/screen2.png) 

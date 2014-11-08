@@ -16,71 +16,67 @@ npm install cabmin
 
 ## Getting Started
 
-
-**index.js**
 ```js
 var app    = require('orangebox').app();
-var cabmin = require('cabmin');
-
-var users = {
-    admin: {
-        userpic: 17,
-        hash:  '9sg87sf68.....' //password hash 
-    }
-};
-
-app.use(cabmin.init({
+var cabmin = require('cabmin').init({
     title    : 'mysite',
     mainPage : '/news',
     path     : __dirname + '/controllers',
     views    : __dirname + '/views',
-    users    : users
-}));
+    users    : {
+        admin: {
+            userpic: 17,
+            hash:  '9sg87sf68.....' //password hash 
+        }
+    }
+});
+
+app.use(cabmin);
 
 app.get('/', function (req, res) {
   res.send('This is site frontend');
 });
+
 app.listen(8080);
 ```
    
 *For hash generation you can use script:*
-   
-**password.js**
 ```js
 var cabmin = require('cabmin');
 console.log(cabmin.hash('password123'));
 ```
 
-
+## Create section in cabmin
  
 **/controllers/news.js**   
    
 ```js
-module.exports.info = {
-    "news": {
-        title: 'News panel',
-        method: newsRender,
-        // dropmenu: true,
-        order: 1,
-        count: 50
-    }
+module.exports = function(user) { 
+    return {
+        "news": {
+            title: 'News panel',
+            method: function(req, res, next) {
+                res.render('newsTPL', {data:'This is backend', test:'Check Me'});
+                next();
+            }
+        }
+    };
 };
-
-function newsRender (req, res, next) {
-    res.render({data: 'This is backend', test: 'Test, test'}, 'newsTPL');
-    next();
-}
 ```
    
 **/views/newsTPL.html**
 
 ```html
-<div><img src="https://dl.dropboxusercontent.com/u/68595887/a/t.png" /></div>
-<div class="wow"><i>{{ data }}</i></div>
-<div class="num"><b>{{ test }}</b></div>
+<div class="wow">
+    <img src="http://msrv.su/files/test.png" />
+    <h3>{{ data }}</h3>
+    <input type="checkbox" id="c" checked /> {{ test }}
+</div>
 ```
    
-   
+**Result:**
+![Cabmin screenshot](http://msrv.su/files/totem.png)
+
 ## Examples
 Coming soon...
    

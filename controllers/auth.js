@@ -49,7 +49,7 @@ exports.test = function(req, res, next) {
 
 function render_auth (req, res, next) {
 	// res.render(authTpl(), "auth");
-	res.render({}, __dirname + '/../views/auth-content.html', 'auth');
+	res.render(__dirname + '/../views/auth-content.html', {}, 'auth');
 	next();
 }
 
@@ -61,12 +61,12 @@ function render_lock (req, res, next) {
 		staticUrl: req.options.staticUrl
 	}), "auth", {showDropMenu: true, login: req.options.login});*/
 
-	res.render({
+	res.render(__dirname + '/../views/lock-content.html', {
 		login: req.options.login,
 		remember: req.cookies.remember,
 		userpic: req.options.userpic,
 		staticUrl: req.options.staticUrl
-	}, __dirname + '/../views/lock-content.html', 'auth', {showDropMenu: true, login: req.options.login});
+	}, 'auth', {showDropMenu: true, login: req.options.login});
 
 	next();
 }

@@ -1,16 +1,18 @@
-module.exports.info = {
-	"logout": {
-		title: 'Full ogout',
-		method: logout,
-		showInMenu: false
-	},
-	"lock": {
-		title: 'Logout',
-		method: lock,
-		dropmenu: true,
-		order: 8,
-		topDivider: true
-	}
+module.exports = function(user) {
+	return {
+		"logout": {
+			title: 'Full ogout',
+			method: logout,
+			showInMenu: false
+		},
+		"lock": {
+			title: 'Logout',
+			method: lock,
+			dropmenu: true,
+			order: 8,
+			topDivider: true
+		}
+	};
 };
 
 function lock(req, res, next) {

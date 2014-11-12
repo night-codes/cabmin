@@ -54,13 +54,6 @@ function render_auth (req, res, next) {
 }
 
 function render_lock (req, res, next) {
-/*	res.render(lockTpl({
-		login: req.options.login,
-		remember: req.cookies.remember,
-		userpic: req.options.userpic,
-		staticUrl: req.options.staticUrl
-	}), "auth", {showDropMenu: true, login: req.options.login});*/
-
 	res.render(__dirname + '/../views/lock-content.html', {
 		login: req.options.login,
 		remember: req.cookies.remember,

@@ -10,7 +10,7 @@ exports.test = function(req, res, next) {
 	var login = req.cookies.login;
 	var hash  = req.cookies.hash;
 
-	if (req.options.noAuth) {
+	if (req.options.noAuth || req.params.module == 'logout') {
 		next();
 	} else {
 		// Данные с формы

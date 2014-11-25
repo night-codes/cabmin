@@ -14,14 +14,14 @@ exports.test = function(req, res, next) {
 		next();
 	} else {
 		// Данные с формы
-		if ((!hash || !login) && req.body.login && req.body.password && req.options.users[req.body.login]) {
+		if (req.body.login && req.body.password && req.body.entercabmin && req.options.users[req.body.login]) {
 			if (utils.sha512(req.body.password) === req.options.users[req.body.login].hash) {
 				login = req.body.login;
 				if (req.body.remember) {
 					res.cookie('remember', '1', { maxAge: 3 * utils.YEAR, path: req.options.baseUrl});
 					req.cookies.remember = true;
 				} else {
-					res.clearCookie('remember');
+					res.clearCookie('remember', {path: req.options.baseUrl});
 					req.cookies.remember = false;
 				}
 				hash  = utils.md5(req.options.users[login].hash + req.body.login + 'slt');

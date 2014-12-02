@@ -94,7 +94,9 @@ var t = false;
 					function(e) { ch.wrapper.trigger('mouseover', [e]); },
 					function(e) { ch.wrapper.trigger('mouseout', [e]); }
 				);
-				label.click(function(e) { $ch.trigger('click',[e]); CB(e); return false;});
+				label.off('click').click(function(e) {
+					$ch.trigger('click',[e]); CB(e); return false;
+				});
 			}
 
 			ch.wrapper.click(function(e) {

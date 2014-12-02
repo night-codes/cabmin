@@ -128,3 +128,20 @@ h4 {
     display: block;
     font-size: 125%;
 }
+
+.unselectable, .unselectable *, label, .button, button {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    behavior: expression(
+        (
+            this.onselectstart = function() {
+                return (/^(?:INPUT|TEXTAREA)$/).test( event.srcElement.tagName ) ?
+                    event.cancelBubble = true :
+                    (' ' + this.className + ' ').indexOf(' unselectable ') < 0
+            }
+        ),
+        ( this.style.behavior = null )
+    );
+}

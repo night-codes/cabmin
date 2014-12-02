@@ -933,6 +933,7 @@ button, input[type=submit] {
 	font-size: 120%;
 	cursor: pointer;
 	display: inline-block;
+	outline-style: none;
 }
 button:hover, input[type=submit]:hover {
 	background: #4e9a31;

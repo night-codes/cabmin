@@ -8,12 +8,17 @@
 		@import url("{{ staticUrl }}/css/sweet-alert.css");
 		@import url("{{ staticUrl }}/css/hi/{{ syntax }}.css");
 	</style>
+    {% for item in css %}
+	<style type="text/css" >@import url("{{ item }}");</style>
+    {% endfor %}
     <script type="text/javascript"> window.baseUrl="{{ baseUrl }}"; window.staticUrl="{{ staticUrl }}"; </script>
 	<script src="{{ staticUrl }}/js/jquery-2.1.1.min.js"></script>
 	<script src="{{ staticUrl }}/js/sweet-alert.min.js"></script>
 	<script src="{{ staticUrl }}/js/jquery.checkbox.js"></script>
     <script src="{{ staticUrl }}/js/common.js"></script>
-    {% if css %}<style type="text/css" >@import url("{{ css }}");</style>{% endif %}
+    {% for item in js %}
+    <script src="{{ item }}"></script>
+    {% endfor %}
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 
 	<link rel="icon" type="image/ico" href="{{ staticUrl }}/favicon.ico">

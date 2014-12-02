@@ -132,6 +132,10 @@ exports.run = function (req, res, next) {
 			el.active = req.options.baseUrl + '/' + page.route.toLowerCase() === el.url.toLowerCase();
 		});
 		req.options.page = page;
+		req.current = page;
+		var p = req.path.replace(req.options.page.url + '/', '').split('/');
+		extend(req.params, p);
+		req.length = p.length;
 		page.method (req, res, next);
 	}
 };

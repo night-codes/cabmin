@@ -21,9 +21,12 @@
   "dependencies": {
     "highlight.js": "*",
     "marked": "*",
+    "mime": "^1.2.11",
     "orangebox": "*",
     "press": "*",
-    "swig": "*"
+    "sqwish": "^0.2.2",
+    "swig": "*",
+    "uglify-js": "^2.4.15"
   },
   "keywords": [
     "admin",

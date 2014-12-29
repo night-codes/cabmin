@@ -3,37 +3,43 @@ var fs        = require('fs');
 var extend    = require('util')._extend;
 var marked    = require('marked');
 var swig      = require('swig');
+var mime      = require('mime');
+var uglifyjs  = require('uglify-js');
+var sqwish    = require('sqwish');
 var markCache = {};
 var swigCache = {};
-var fakeUser = {upd: 0};
+var fakeUser  = {upd: 0};
 
 
 marked.setOptions({ highlight: function (code) {
 	return require('highlight.js').highlightAuto(code).value;
 }});
 
-exports.sha512 = function(text) {
-	var sha = crypto.createHmac('sha512', 'r4ya6u7i8eu254t');
-    sha.update('' + text);
-    return sha.digest('hex');
+exports.sha512 = function(text, secret, salt) {
+	secret = secret || 'r4ya6u7i8eu254t';
+	var sha = crypto.createHmac('sha512', secret);
+	sha.update('' + text);
+	if (salt) sha.update(salt);
+	return sha.digest('hex');
 };
 
 
-exports.md5 = function(text) {
-	var sha = crypto.createHash('md5');
-    sha.update('' + text);
-    return sha.digest('hex');
+exports.md5 = function(text, salt) {
+	var md5 = crypto.createHash('md5');
+	md5.update('' + text);
+	if (salt) md5.update(salt);
+	return md5.digest('hex');
 };
 
 
 exports.hex2rgba = function(hex,opacity){
-    hex = hex.replace('#','');
-    r = parseInt(hex.substring(0,2), 16);
-    g = parseInt(hex.substring(2,4), 16);
-    b = parseInt(hex.substring(4,6), 16);
+	hex = hex.replace('#','');
+	r = parseInt(hex.substring(0,2), 16);
+	g = parseInt(hex.substring(2,4), 16);
+	b = parseInt(hex.substring(4,6), 16);
 
-    result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
-    return result;
+	result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
+	return result;
 };
 
 exports.wrap = function (options, callback) {

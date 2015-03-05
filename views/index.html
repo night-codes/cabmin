@@ -3,6 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Cabmin - {{ title }}</title>
+
+	<!--[if lt IE 9]>
+	    <script src="{{ staticUrl }}/js/css3-mediaqueries.js"></script>
+	    <script src="{{ staticUrl }}/js/html5shiv.js"></script>
+	<![endif]-->
+
 	<style type="text/css" >
 		@import url("{{ staticUrl }}/css/style.css");
 		@import url("{{ staticUrl }}/css/sweet-alert.css");
@@ -22,9 +28,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 
 	<link rel="icon" type="image/ico" href="{{ staticUrl }}/favicon.ico">
-	<!--[if lt IE 9]>
-		<script src="{{ staticUrl }}/js/html5shiv.js"></script>
-	<![endif]-->
+
 </head>
 <body>
 	<header class="noise">

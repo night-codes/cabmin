@@ -5,6 +5,11 @@ var path   = require('path');
 
 module.exports.init = function(opt) {
 
+	opt = opt || {};
+/*	if (opt.press) {
+
+	}*/
+
 	var router = app.Router();
 	router.options = extend({
 		title: 'Cabmin',

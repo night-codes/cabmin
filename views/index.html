@@ -2,39 +2,51 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Cabmin - {{ title }}</title>
 
 	<!--[if lt IE 9]>
-	    <script src="{{ staticUrl }}/js/css3-mediaqueries.js"></script>
-	    <script src="{{ staticUrl }}/js/html5shiv.js"></script>
+		<script src="{{ staticUrl }}/js/css3-mediaqueries.js"></script>
+		<script src="{{ staticUrl }}/js/html5shiv.js"></script>
 	<![endif]-->
 
-	<style type="text/css" >
-		@import url("{{ staticUrl }}/css/style.css");
-		@import url("{{ staticUrl }}/css/sweet-alert.css");
-		@import url("{{ staticUrl }}/css/hi/{{ syntax }}.css");
-	</style>
-    {% for item in css %}
-	<style type="text/css" >@import url("{{ item }}");</style>
-    {% endfor %}
-    <script type="text/javascript"> window.baseUrl="{{ baseUrl }}"; window.staticUrl="{{ staticUrl }}"; </script>
-	<script src="{{ staticUrl }}/js/jquery-2.1.1.min.js"></script>
-	<script src="{{ staticUrl }}/js/sweet-alert.min.js"></script>
-	<script src="{{ staticUrl }}/js/jquery.checkbox.js"></script>
-    <script src="{{ staticUrl }}/js/common.js"></script>
-    {% for item in js %}
-    <script src="{{ item }}"></script>
-    {% endfor %}
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+	{% if press and pressCSS %}
+		<style type="text/css" >{{ pressCSS }}</style>
+	{% else %}
+		<style type="text/css" >
+			@import url("{{ staticUrl }}/css/style.css");
+			@import url("{{ staticUrl }}/css/sweet-alert.css");
+			@import url("{{ staticUrl }}/css/hi/{{ syntax }}.css");
+		</style>
+		{% for item in css %}
+		<style type="text/css" >@import url("{{ item }}");</style>
+		{% endfor %}
+	{% endif %}
 
+	{% if press and pressJS %}
+		<script type="text/javascript">{{ pressJS }}</script>
+	{% else %}
+		<script type="text/javascript"> window.baseUrl="{{ baseUrl }}"; window.staticUrl="{{ staticUrl }}"; </script>
+		<script src="{{ staticUrl }}/js/jquery-2.1.1.min.js"></script>
+		<script src="{{ staticUrl }}/js/sweet-alert.min.js"></script>
+		<script src="{{ staticUrl }}/js/jquery.checkbox.js"></script>
+		<script src="{{ staticUrl }}/js/common.js"></script>
+		{% for item in js %}
+		<script src="{{ item }}"></script>
+		{% endfor %}
+	{% endif %}
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 	<link rel="icon" type="image/ico" href="{{ staticUrl }}/favicon.ico">
 
 </head>
 <body>
 	<header class="noise">
 		<div class="body-max">
+			<div class="nav-button" title="Menu"></div>
 			<a href="{{ baseUrl }}" class="logo">
-			<h1 title="# Cabmin"># <b>Cab</b>min</h1>
+			<h1 title="# Cabmin"><span class="grid"># </span><b>Cab</b>min</h1>
 			<small>Admin area for <b>{{ title }}</b></small>
 			</a>
 
@@ -59,7 +71,7 @@
 		</div>
 	</header>
 	<main class="body-max">
-		<aside>
+		<aside class="scrollable unselectable stopscroll">
 			<nav>
 				{% for item in menu %}
 					{% if item.title and item.showInMenu and not item.dropmenu %}
@@ -68,6 +80,7 @@
 				{% endfor %}
 			</nav>
 		</aside>
+		<div class="asideBottom stopscroll"></div>
 		<article>
 			<div>
 				{% if page.title and page.showTitle %}<h1>{{ page.title }}</h1>{% endif %}

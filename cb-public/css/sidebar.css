@@ -2,7 +2,7 @@
 aside {
     /*background: #F6F6F6;*/
     padding: 0px;
-    width: 310px;
+    width: 280px; /* aside width */
     float: left;
     border-right: none;
 }
@@ -20,7 +20,7 @@ aside>nav a{
 	outline-style: none;
 }
 aside>nav a:before{
-	content: "# ";
+	/*content: "# ";*/
 	font-size: 88%;
 }
 aside>nav a>small {
@@ -66,4 +66,23 @@ aside>nav a i{
 	width: 1.3em;
 	vertical-align: middle;
 	font-weight: top;
+}
+
+.nav-button {
+	display: none;
+	height: 5.1em;
+	width: 54px;
+	background: transparent url("../img/menu.png") right center no-repeat;
+	float: left;
+	cursor: pointer;
+}
+.asideBottom {
+	z-index: 999;
+	position: fixed;
+	width: 150%;
+	height: 150%;
+	background: rgba(0,0,0, 0.4);
+	display: none;
+	top: 0px;
+	left: 0px;
 }

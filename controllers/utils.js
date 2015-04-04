@@ -42,6 +42,10 @@ exports.hex2rgba = function(hex,opacity){
 	return result;
 };
 
+exports.arrayTest = function(arr1, arr2) {
+	return arr1.filter(function(i) {return (arr2.indexOf(i) > -1);});
+};
+
 exports.wrap = function (options, callback) {
 	return function(request, response, next){
 
@@ -78,10 +82,12 @@ exports.wrap = function (options, callback) {
 				var d = extend(extend({}, request.options), typeof data == 'object' ? data : {data: data});
 				data = swigCache[view](d);
 			}
+			response.status(res.statusCode);
 			response.render( cabView||'index', extend(extend({data:data}, request.options), obj||{} ) );
 		};
 
 		res.json = function(data) {
+			response.status(res.statusCode);
 			response.type('json').send(JSON.stringify(data, "\t", 4));
 		};
 
@@ -110,16 +116,27 @@ exports.wrap = function (options, callback) {
 
 
 exports.run = function (req, res, next) {
+
+	var step = true, pg404 = false;
 	if (!req.params.module || typeof req.options.modules[req.params.module] == 'undefined') {
-		res.redirect(req.options.home);
-		next();
-	} else {
+		if (!req.options.modules["404"]){
+			res.redirect(req.options.home);
+			step = false;
+			next();
+		} else {
+			pg404 = true;
+		}
+	}
+	if (step) {
 		var page = req.options.modules[req.params.module];
 
 		var user = req.options.user || false;
 		var u = user ? req.options.users[user.login] : fakeUser;
 		var updated = false;
 
+		if (pg404) {
+			req.options.page = page = req.options.modules["404"];
+		}
 		if (user || req.options.noAuth) {
 			var sec = parseInt(Date.now() / 1000, 10);
 			if (!u.upd || u.upd != sec) {
@@ -139,6 +156,37 @@ exports.run = function (req, res, next) {
 		});
 		req.options.page = page;
 		req.current = page;
+
+		var pg = req.options.page.groups.split(',').map(function(el) {
+			return String(el.trim());
+		});
+		var ug = (user && user.groups) ? user.groups.split(',').map(function(el) {
+			return String(el.trim());
+		}) : [];
+		ug.push('all');
+
+		if (user && user.groups) {
+			req.options.menu = req.options.menu.filter(function(el) {
+				if (!el.groups) return false;
+				var g = el.groups.split(',').map(function(el) {return String(el.trim());});
+				if (!exports.arrayTest(ug, g).length) {
+					return false;
+				}
+				return true;
+			});
+		}
+
+		if (!exports.arrayTest(ug, pg).length) {
+			if (req.options.modules["access-denied"]){
+				req.options.page = page = req.options.modules["access-denied"];
+			} else {
+				page.showTitle = false;
+				page.method = function access(req, res, next) {
+					res.render(__dirname + '/../views/access-denied.html', {});
+				};
+			}
+		}
+
 		var p = req.path.replace(req.options.page.url + '/', '').split('/');
 		extend(req.params, p);
 		req.length = p.length;
@@ -176,6 +224,7 @@ exports.load = function(options) {
 			parentMenu: "/",
 			order: 5,
 			count: 0,
+			groups: 'all',
 			url: (options.baseUrl + '/' + r),
 			note: '',
 			active: 0

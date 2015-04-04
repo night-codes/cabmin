@@ -105,28 +105,30 @@ input, select {
 }
 
 h1 {
-    padding-top: 0.5em;
-    padding-bottom: 0.3em;
+    padding-top: 0.3em;
+    padding-bottom: 0.2em;
     display: block;
     font-size: 195%;
 }
 h2 {
-    padding-top: 0.5em;
-    padding-bottom: 0.3em;
+    padding-top: 0.3em;
+    padding-bottom: 0.2em;
     display: block;
     font-size: 170%;
 }
 h3 {
-    padding-top: 0.5em;
-    padding-bottom: 0.3em;
+    padding-top: 0.3em;
+    padding-bottom: 0.15em;
     display: block;
     font-size: 145%;
+    font-weight: 500;
 }
 h4 {
-    padding-top: 0.4em;
-    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
     display: block;
     font-size: 125%;
+    font-weight: 500;
 }
 
 .unselectable, .unselectable *, label, .button, button {

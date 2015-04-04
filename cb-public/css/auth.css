@@ -25,11 +25,12 @@ body {
 }
 main {
 	padding: 0.3em 1.2em 2em;
+	background: #fff;
 }
 main h1 {
-	font-size: 150%;
+	font-size: 158%;
 	width: auto;
-	margin: 0.7em 0em;
+	margin: 0.8em 0em 0.5em;
 }
 header {
 	margin-bottom: 0px;
@@ -41,10 +42,12 @@ button, input[type=submit] {
 	margin-right: 0;
 	outline-style: none;
 	border: none !important;
+	font-size: 115%;
 }
 input[type=text], input[type=password] {
 	width: 95%;
 	background: #ffffff;
+	font-size: 118%;
 }
 .remember {
 	width: auto;
@@ -66,7 +69,7 @@ header .logo>small {
 	top: -0.5em;
 	margin-bottom: 1em;
 	display: inline-block;
-	font-size: 84%;
+	font-size: 90%;
 	float: left;
 }
 .e{
@@ -80,7 +83,7 @@ header .logo>small {
 img.userpic {
 	height: 3.4em;
 	display: inline-block;
-	margin: 1em;
+	margin: 0.6em  1.5em  1em ;
 	margin-left: 0px;
 	vertical-align: middle;
 	float: left;
@@ -101,4 +104,9 @@ h1 .fa-refresh:hover {
 }
 div {
 	text-align: middle;
+}
+
+form label {
+	margin: 0.5em 0px 0.2em;
+	font-size: 90%;
 }

@@ -11,9 +11,10 @@ aside>nav {
 }
 aside>nav a{
 	display: block;
-	padding: 10px 15px;
+	padding: 7px 15px;
 	color: #3D464D;
-	font-size: 92%;
+	font-size: 105%;
+	font-weight: normal;
     line-height: 160%;
 	text-decoration: none;
 	text-align: right; /*left;*/

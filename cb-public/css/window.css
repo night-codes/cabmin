@@ -1,0 +1,68 @@
+
+
+/* Окна */
+
+.w-wrap {
+	position: fixed;
+	display: none;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	background: rgba(100, 100, 100, 0.5);
+	overflow: auto;
+	z-index: 10000;
+	text-align: center;
+}
+.w-box {
+	text-align: left;
+	min-width: 600px;
+	max-width: 85%;
+	background: #ffffff;
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+	position: relative;
+	font-size: 100%;
+	color: #4D4D4D;
+	margin: 120px auto 50px;
+   display: -moz-inline-stack; /* ← Firefox 2 backwards compatibility */
+   display: inline-block;
+   vertical-align: top;
+}
+.w-content, .w-title {
+	padding: 15px 25px;
+}
+.w-content table {
+	font-size: 95%;
+}
+.w-title, .in_popup_window_title {
+	background-color: #4b7599;
+	color: #ffffff;
+	padding: 13px 23px;
+	font-size: 130%;
+	font-weight: bold;
+	text-align: left;
+}
+.w-close, .in_popup_window_close {
+	color: white;
+	position: absolute;
+	top: 15px;
+	right: 14px;
+	font-size: 20px;
+	/*font-weight: bold;*/
+	cursor: pointer;
+	height: 22px;
+	width: 22px;
+	opacity: 0.7;
+}
+.w-close:hover, .in_popup_window_close:hover {
+	opacity: 0.9;
+}
+.w-content input[type=text],
+.w-content input[type=number],
+.w-content input[type=password],
+.w-content input[type=time],
+.w-content select,
+.w-content textarea {
+	position: relative;
+	top: -0.5em;
+}

@@ -1,0 +1,67 @@
+
+/*
+ * Табы на странице
+ */
+article nav.tabs {
+	margin-bottom: 2em;
+	padding: 0px 20px;
+	border-bottom: 1px solid #cccccc;
+	-webkit-box-shadow: inset 0px -45px 34px -35px rgba(40, 40, 40, 0.05);
+	-moz-box-shadow:    inset 0px -45px 34px -35px rgba(40, 40, 40, 0.05);
+	box-shadow:         inset 0px -45px 34px -35px rgba(40, 40, 40, 0.05);
+	position: relative;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	behavior: expression(
+		(
+			this.onselectstart = function() {
+				return (/^(?:INPUT|TEXTAREA)$/).test( event.srcElement.tagName ) ?
+					event.cancelBubble = true :
+					(' ' + this.className + ' ').indexOf(' unselectable ') < 0
+			}
+		),
+		( this.style.behavior = null )
+	);
+}
+article nav.tabs:after {
+	content: " ";
+	height: 100%;
+	position: absolute;
+	right: 0px;
+	width: 30px;
+	border: none;
+	-webkit-box-shadow: inset -16px 4px 38px -2px rgba(255,255,255, 1);
+	-moz-box-shadow:    inset -16px 4px 38px -2px rgba(255,255,255, 1);
+	box-shadow:         inset -16px 4px 38px -2px rgba(255,255,255, 1);
+}
+article nav.tabs>a, article nav.tabs>span{
+	display: inline-block;
+	padding: 10px 15px;
+	margin-right: 3px;
+	cursor: pointer;
+	border: solid 1px transparent;
+	margin-bottom: -1px;
+	color: #555555;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%;
+	font-size: 112%;
+}
+article nav.tabs>a:hover, article nav.tabs>span:hover{
+	text-decoration: underline;
+}
+article nav.tabs>a.active, article nav.tabs>span.active{
+	border: solid 1px #cccccc;
+	border-bottom: solid 1px #ffffff;
+	background: #ffffff;
+	text-decoration: none;
+}
+article div.tabs-content {
+	display: none;
+	position: relative;
+}
+article div.tabs-content.active {
+	display: block;
+}

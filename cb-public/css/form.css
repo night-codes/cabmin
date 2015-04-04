@@ -1,4 +1,9 @@
-
+input, textarea, button, select {
+	font-family: 'Roboto', sans-serif;
+}
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+	font-family: 'Roboto', sans-serif !important;
+}
 /* Buttons */
 .btn {
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
@@ -14,7 +19,7 @@
 	border: none;
 	white-space: nowrap;
 	padding: 6px 12px;
-	font-size: 90%;
+	font-size: 96%;
 	line-height: 1.42857143;
 	text-decoration: none;
 	border-radius: 3px;
@@ -472,10 +477,11 @@ tbody.collapse.in {
 	padding: 0.4em 0.8em;
 	clear: both;
 	font-weight: normal;
-	line-height: 1.42857143;
-	color: #333333;
+	line-height: 1.4;
+	color: #555555;
 	white-space: nowrap;
 	text-decoration: none;
+	font-size: 105%;
 }
 .dropdown-menu > li > a > span {
 	background: #ff8700;
@@ -930,7 +936,7 @@ button, input[type=submit] {
 	border-radius: 3px;
 	padding: 0.4em 0.5em;
 	margin: 0.5em 0.3em 3em 1px;
-	font-size: 120%;
+	font-size: 105%;
 	cursor: pointer;
 	display: inline-block;
 	outline-style: none;
@@ -945,5 +951,148 @@ form label {
 	width: 13em;
 	display: inline-block;
 	font-size: 88%;
-	font-weight: bold;
+	font-weight: normal;
+	font-size: 110%;
+	position: relative;
+	top: 5px;
+}
+form label sup {
+	position: relative;
+	top: -2px;
+	left: -2px;
+	font-size: 76%;
+	color: #ee8877;
+}
+
+input[type=text], input[type=number], input[type=password], input[type=time], textarea, select {
+	background: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 3px;
+	padding: 0.4em 0.5em;
+	font-size: 100%;
+	outline-style: none;
+	margin: 0.5em 0.3em 0.3em 1px;
+	color: #555555;
+	width: 220px;
+}
+input[type=time] {
+	width: auto;
+	max-width: 6em;
+	left: 5px;
+}
+input[type=time]:focus {
+	border: 1px solid #a1c3fa !important;
+	color: #8bacc7 !important;
+	box-shadow: 0px 0px 3px #a1c3fa !important;
+}
+
+select {
+	font-size: 100%;
+	border: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d3d3d3;
+	border-top: 1px solid #dddddd;
+	border-radius: 3px;
+	background-color: #f6f6f6;
+	background: rgba(0,0,0,0.04);
+	background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.04) 47%, rgba(0,0,0,0.08) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(47%, rgba(0,0,0,0.04)), color-stop(100%, rgba(0,0,0,0.08)));
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.04) 47%, rgba(0,0,0,0.08) 100%);
+	background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.04) 47%, rgba(0,0,0,0.08) 100%);
+	background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.04) 47%, rgba(0,0,0,0.08) 100%);
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.04) 47%, rgba(0,0,0,0.08) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+    outline-style: none !important;
+    outline: none !important;
+}
+.select-wrap>select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    padding-right: 1.7em;
+    z-index: 2;
+}
+.select-wrap:after {
+	display: inline-block;
+	font: normal normal normal 13px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+	content: "\f078";
+	color: #888888;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+	left: -1.9em;
+	top: -0.5em;
+	font-size: 13px;
+	padding: 0px;
+	z-index: 1;
+}
+select[multiple] {
+	padding: 0px !important;
+	background-color: #ffffff;
+}
+select[multiple] option {
+	padding: 0.4em 0.5em;
+}
+input[type=number] {
+	width: 95px;
+}
+input[type=text].date_picker {
+	padding: 0.4em 0.5em;
+	font-size: 120%;
+}
+textarea {
+	min-width: 25em;
+	min-height: 6em;
+}
+
+
+
+fieldset {
+	vertical-align: top;
+	display: inline-block;
+	border: 1px solid #eeeeee;
+	padding: 10px;
+	width: auto;
+	margin-right: 15px;
+}
+
+.form-down, .form-footer {
+	border-top: solid 1px #e6e6e6;
+	background: #fcfcfc;
+	width: 100%;
+	padding: 10px 25px;
+	margin: 60px -25px -20px !important;
+	position: relative;
+	text-align: right;
+
+}
+.form-down:before, .form-footer:before {
+	content: "* Поля, обязательные для заполнения";
+	position: absolute;
+	top: -26px;
+	left: 25px;
+	color: #bbbbbb;
+	font-style: italic;
+	font-size: 80%;
+	text-align: left;
+}
+.form-footer>button, .form-footer>input[type=submit],
+.form-down>button, .form-down>input[type=submit] {
+	  margin: 0.5em 0.3em 0.5em 0.7em;
+}
+button[type=cancel] {
+	background: #ee8877;
+	margin-right: 0.6em;
+}
+button[type=cancel]:hover {
+	background: #dd7766;
+}
+article form label {
+	margin-top: 4px;
+	vertical-align: top;
 }

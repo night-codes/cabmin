@@ -911,22 +911,29 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 
 input[type=text],
 input[type=password],
+input[type=time],
+input[type=number],
+select,
 textarea {
-	background: #ffffff;
-	border: 1px solid #dddddd;
-	border-radius: 3px;
-	padding: 0.4em 0.5em;
-	font-size: 120%;
-	outline-style: none;
+	width: 220px;
+	padding: 0.5em 0.6em;
 	margin: 0.5em 0.3em 0.3em 1px;
-	color: #666666;
+	background: #ffffff;
+	border-radius: 3px;
+	border: 1px solid #cccccc;
+	line-height: 110%;
+	outline-style: none;
+	color: #555555;
+	font-size: 100%;
 }
 
 input[type=text]:focus,
 input[type=password]:focus,
+input[type=time]:focus,
+input[type=number]:focus,
 textarea:focus {
-	border: 1px solid #a1c3fa;
-	color: #8bacc7;
+	border: 1px solid #639eb8;
+	color: #333333;
 	box-shadow: 0px 0px 3px #a1c3fa;
 }
 button, input[type=submit] {
@@ -950,9 +957,8 @@ button:last-child, input[type=submit]:last-child {
 form label {
 	width: 13em;
 	display: inline-block;
-	font-size: 88%;
 	font-weight: normal;
-	font-size: 110%;
+	font-size: 100%;
 	position: relative;
 	top: 5px;
 }
@@ -960,30 +966,15 @@ form label sup {
 	position: relative;
 	top: -2px;
 	left: -2px;
-	font-size: 76%;
+	font-size: 78%;
 	color: #ee8877;
 }
 
-input[type=text], input[type=number], input[type=password], input[type=time], textarea, select {
-	background: #ffffff;
-	border: 1px solid #dddddd;
-	border-radius: 3px;
-	padding: 0.4em 0.5em;
-	font-size: 100%;
-	outline-style: none;
-	margin: 0.5em 0.3em 0.3em 1px;
-	color: #555555;
-	width: 220px;
-}
+
 input[type=time] {
 	width: auto;
 	max-width: 6em;
 	left: 5px;
-}
-input[type=time]:focus {
-	border: 1px solid #a1c3fa !important;
-	color: #8bacc7 !important;
-	box-shadow: 0px 0px 3px #a1c3fa !important;
 }
 
 select {
@@ -1072,7 +1063,7 @@ fieldset {
 
 }
 .form-down:before, .form-footer:before {
-	content: "* Поля, обязательные для заполнения";
+	content: "* - required fields";
 	position: absolute;
 	top: -26px;
 	left: 25px;

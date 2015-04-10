@@ -8,7 +8,7 @@
 @import url("font-awesome.min.css");
 @import url("window.css");
 @import url("tabs.css");
-/*@import url("fonts.css");*/
+@import url("fonts.css");
 
 body {
 	font-family: 'Roboto', sans-serif;

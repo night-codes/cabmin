@@ -22,7 +22,7 @@
     "highlight.js": "*",
     "marked": "*",
     "mime": "^1.2.11",
-    "orangebox": "^0.2.1",
+    "orangebox": "^0.3.0",
     "press": "*",
     "sqwish": "^0.2.2",
     "swig": "*",

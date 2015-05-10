@@ -134,6 +134,17 @@ exports.run = function (req, res, next) {
 		var u = user ? req.options.users[user.login] : fakeUser;
 		var updated = false;
 
+		if (page && page.tabs) {
+			var firstTab, activeTab;
+			for (var tabKey in page.tabs) {
+				var tab = page.tabs[tabKey];
+				if (!firstTab) firstTab = tabKey;
+				if (tabKey == 'default' && !activeTab) activeTab = 'default';
+				if (req.query.tab && tabKey == req.query.tab) activeTab = tabKey;
+			}
+			page.activeTab = activeTab || firstTab;
+		}
+
 		if (pg404) {
 			req.options.page = page = req.options.modules["404"];
 		}

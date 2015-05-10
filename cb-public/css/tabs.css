@@ -36,10 +36,10 @@ article nav.tabs:after {
 	-moz-box-shadow:    inset -16px 4px 38px -2px rgba(255,255,255, 1);
 	box-shadow:         inset -16px 4px 38px -2px rgba(255,255,255, 1);
 }
-article nav.tabs>a, article nav.tabs>span{
+article nav.tabs>*{
 	display: inline-block;
-	padding: 10px 15px;
-	margin-right: 3px;
+	padding: 0.5em 0.7em;
+	margin-right: 0px;
 	cursor: pointer;
 	border: solid 1px transparent;
 	margin-bottom: -1px;
@@ -49,14 +49,24 @@ article nav.tabs>a, article nav.tabs>span{
 	line-height: 120%;
 	font-size: 112%;
 }
-article nav.tabs>a:hover, article nav.tabs>span:hover{
-	text-decoration: underline;
-}
-article nav.tabs>a.active, article nav.tabs>span.active{
+article nav.tabs>*.active{
 	border: solid 1px #cccccc;
 	border-bottom: solid 1px #ffffff;
+	/*border-top: solid 2px #d96469;*/
 	background: #ffffff;
 	text-decoration: none;
+}
+article nav.tabs>*>span,
+article nav.tabs>*.active:hover>span,
+article nav.tabs>*.locked:hover>span {
+	border-bottom: solid 2px transparent;
+}
+article nav.tabs>*.locked {
+	color: #999999 !important;
+	cursor: default;
+}
+article nav.tabs>*:hover>span{
+	border-bottom: solid 2px #777777;
 }
 article div.tabs-content {
 	display: none;
@@ -64,4 +74,7 @@ article div.tabs-content {
 }
 article div.tabs-content.active {
 	display: block;
+}
+article nav.tabs>*>span.fa:before{
+	padding-right: 0.25em;
 }

@@ -225,6 +225,40 @@ exports.run = function (req, res, next) {
 			}
 		}
 
+		var submenus = {};
+
+		req.options.menu.forEach(function (el, i) {
+
+			if (el.submenu && el.submenu.length) {
+
+				if (!submenus[el.submenu]) {
+					submenus[el.submenu] = {
+						items : [],
+						order : 1
+					};
+				}
+
+				var sub = submenus[el.submenu];
+
+				sub.items.push(el);
+
+				if (el.subOrder) {
+					sub.order = el.subOrder;
+				}
+
+				if (el.active) {
+					sub.open = true;
+				}
+
+				delete req.options.menu[i];
+			}
+
+		});
+
+		var sortObj = {};
+
+		req.options.submenus = sortByProp(submenus, 'order');
+
 		var p = req.path.replace(req.options.page.url + '/', '').split('/');
 		extend(req.params, p);
 		req.length = p.length;
@@ -232,6 +266,43 @@ exports.run = function (req, res, next) {
 	}
 };
 
+function sortByProp(obj, prop) {
+	var sortObj = {};
+	var after = {};
+	var r = {};
+
+	Object.keys(obj).forEach(function (key) {
+
+		var el = obj[key];
+
+		if (!el[prop]) {
+			after[key] = el;
+			return;
+		}
+
+		var k = el[prop];
+
+		if (!sortObj[k]) {
+			sortObj[k] = {};
+		}
+
+		sortObj[k][key] = el;
+
+	});
+
+	Object.keys(sortObj).sort(function (a, b) {
+		return a - b;
+	}).forEach(function (k) {
+
+		var el = sortObj[k];
+
+		Object.keys(el).forEach(function (k) {
+			r[k] = el[k];
+		});
+	});
+
+	return extend(r, after);
+}
 
 exports.load = function (options) {
 	var path = options.path;

@@ -13,6 +13,30 @@ $(function () {
 		event.cancelBubble = true;
 		if (event.stopPropagation) event.stopPropagation();
 	});
+	$('a.submenu').click(function(ev){
+		var $el = $(this);
+		var $ic = $el.find('.fa');
+		var clsMove;
+		var clsAdd;
+		var up = 'fa-caret-up';
+		var down = 'fa-caret-down';
+
+		$el.next('.submenuBody').slideToggle(300);
+
+		if ($ic.hasClass(up)) {
+			clsMove = up;
+			clsAdd = down;
+		} else {
+			clsMove = down;
+			clsAdd = up;
+		}
+
+		$ic.removeClass(clsMove).addClass(clsAdd);
+
+		if (!ev) ev = window.event;
+		ev.cancelBubble = true;
+		if (ev.stopPropagation) ev.stopPropagation();
+	})
 	$('body').click(function(event) {
 		 $('.dropdown-menu').slideUp(300);
 	});

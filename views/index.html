@@ -72,6 +72,30 @@
 	<main class="body-max">
 		<aside class="scrollable unselectable stopscroll">
 			<nav>
+				{% for submenu in submenus %}
+
+					{% for item in submenu.items %}
+						{% if loop.first %}
+							<a class="submenu" href="#">
+								{{ item.submenu }}
+								<span class="fa fa-caret-{% if submenu.open %}up{% else%}down{% endif %}"></span>
+							</a>
+							<div class="submenuBody {% if submenu.open %}open{% endif %}">
+						{% endif %}
+
+						<a  {% if item.active %}class="active"{% endif %}  href="{{ item.url }}">{{ item.title }}   {% if item.count %}<span>{{ item.count }}</span>{% endif %}  {% if item.note %} <small>{{ item.note }}</small>{% endif %}</a>
+
+						{% if loop.last %}
+							</div>
+						{% endif %}
+
+					{% endfor %}
+					{% if loop.last %}
+						<hr />
+					{% endif %}
+
+				{% endfor %}
+
 				{% for item in menu %}
 					{% if item.title and item.showInMenu and not item.dropmenu %}
 						<a  {% if item.active %}class="active"{% endif %}  href="{{ item.url }}">{{ item.title }}   {% if item.count %}<span>{{ item.count }}</span>{% endif %}  {% if item.note %} <small>{{ item.note }}</small>{% endif %}</a>

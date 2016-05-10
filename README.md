@@ -77,13 +77,67 @@ module.exports = function(user) {
 **Result:**
 ![Cabmin screenshot](http://msrv.su/files/totem.png)
 
+## Groups section in cabmin
+For groupings sections, use the following options in the controllers: submenu, subOrder.  
+When submenu is name group, subOrder is order in menu.
+
+**/controllers/admins.js**  
+   
+```js
+module.exports = function(user) {
+    return {
+        "admin": {
+            title: 'Administration',
+            submenu : 'Users',
+            order: 2,
+            method: function(req, res, next) {
+                res.render('adminTPL', {});
+                next();
+            }
+        }
+    };
+};
+```
+
+**/views/adminTPL.html**
+
+```html
+<h3>Here, about the administration</h3>
+```
+
+**/controllers/users.js**  
+   
+```js
+module.exports = function(user) {
+    return {
+        "users": {
+            title: 'Users',
+            submenu : 'Users',
+            order: 1,
+            method: function(req, res, next) {
+                res.render('userTPL', {});
+                next();
+            }
+        }
+    };
+};
+```
+
+**/views/userTPL.html**
+
+```html
+<h3>Here, about the users</h3>
+```
+
+**Result:**
+![Cabmin screenshot](https://raw.githubusercontent.com/mirrr/cabmin/master/cb-public/img/submenu.jpg)
+
 ## Examples
 Coming soon...
    
-   
 ## People
 
-Author and developer is [Oleksiy Chechel](https://github.com/mirrr)   
+Author and developer is [Oleksiy Chechel](https://github.com/mirrr), and developer [Igor Stcherbina](https://github.com/eagle7410)    
    
 
 

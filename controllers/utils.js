@@ -250,12 +250,10 @@ exports.run = function (req, res, next) {
 					sub.open = true;
 				}
 
-				delete req.options.menu[i];
+				req.options.menu[i].showInMenu = false;
 			}
 
 		});
-
-		var sortObj = {};
 
 		req.options.submenus = sortByProp(submenus, 'order');
 

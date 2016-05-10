@@ -279,4 +279,23 @@ only screen and (                min-resolution: 2dppx) {
 	}
 }
 
+/*Adding for submenu*/
+
+a.submenu {
+	font-weight: bold;
+}
+
+a.submenu span {
+	color: #000;
+	background: #fff none;
+}
+
+.submenuBody {
+	display: none;
+}
+
+.open {
+	display: block;
+}
+
 

@@ -1,6 +1,6 @@
 {
   "name": "cabmin",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Simple control panel for Node.js based on OrangeBox",
   "homepage": "https://github.com/mirrr/orangebox-cabmin",
   "author": {
@@ -8,13 +8,11 @@
     "email": "alex.mirrr@gmail.com",
     "skype": "mirrr-2"
   },
-  "contributors": [
-    {
-      "name": "Oleksiy Chechel",
-      "email": "alex.mirrr@gmail.com",
-      "skype": "mirrr-2"
-    }
-  ],
+  "contributors": [{
+    "name": "Oleksiy Chechel",
+    "email": "alex.mirrr@gmail.com",
+    "skype": "mirrr-2"
+  }],
   "engines": {
     "node": ">= 0.10"
   },
@@ -35,16 +33,13 @@
     "control",
     "cms"
   ],
-  "maintainers": [
-    {
-      "name": "Oleksiy Chechel",
-      "email": "alex.mirrr@gmail.com",
-      "skype": "mirrr-2"
-    }
-  ],
+  "maintainers": [{
+    "name": "Oleksiy Chechel",
+    "email": "alex.mirrr@gmail.com",
+    "skype": "mirrr-2"
+  }],
   "repository": {
     "type": "git",
     "url": "https://github.com/mirrr/orangebox-cabmin.git"
-  },
-  "_id": "cabmin@0.1.2"
+  }
 }

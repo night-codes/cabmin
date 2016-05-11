@@ -1,6 +1,6 @@
 {
   "name": "cabmin",
-  "version": "0.1.4",
+  "version": "0.2.1",
   "description": "Simple control panel for Node.js based on OrangeBox",
   "homepage": "https://github.com/mirrr/orangebox-cabmin",
   "author": {

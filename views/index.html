@@ -83,7 +83,7 @@
 							<div class="submenuBody {% if submenu.open %}open{% endif %}">
 						{% endif %}
 
-						<a  {% if item.active %}class="active"{% endif %}  href="{{ item.url }}">{{ item.title }}   {% if item.count %}<span>{{ item.count }}</span>{% endif %}  {% if item.note %} <small>{{ item.note }}</small>{% endif %}</a>
+						<a class="{{ item.route }} {% if item.active %}active{% endif %}" href="{{ item.url }}">{{ item.title }}   {% if item.count %}<span>{{ item.count }}</span>{% endif %}  {% if item.note %} <small>{{ item.note }}</small>{% endif %}</a>
 
 						{% if loop.last %}
 							</div>
@@ -98,7 +98,7 @@
 
 				{% for item in menu %}
 					{% if item.title and item.showInMenu and not item.dropmenu %}
-						<a  {% if item.active %}class="active"{% endif %}  href="{{ item.url }}">{{ item.title }}   {% if item.count %}<span>{{ item.count }}</span>{% endif %}  {% if item.note %} <small>{{ item.note }}</small>{% endif %}</a>
+						<a class="{{ item.route }} {% if item.active %}active{% endif %}" href="{{ item.url }}">{{ item.title }}   {% if item.count %}<span>{{ item.count }}</span>{% endif %}  {% if item.note %} <small>{{ item.note }}</small>{% endif %}</a>
 					{% endif %}
 				{% endfor %}
 			</nav>

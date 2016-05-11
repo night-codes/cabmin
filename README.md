@@ -81,17 +81,17 @@ module.exports = function(user) {
 For groupings sections, use the following options in the controllers: submenu, subOrder.  
 When submenu is name group, subOrder is order in menu.
 
-**/controllers/admin.js**   
+**/controllers/admins.js**  
    
 ```js
-module.exports = function(user) { 
+module.exports = function(user) {
     return {
-        "news": {
+        "admin": {
             title: 'Administration',
             submenu : 'Users',
             order: 2,
             method: function(req, res, next) {
-                res.render('newsTPL');
+                res.render('adminTPL', {});
                 next();
             }
         }
@@ -99,25 +99,42 @@ module.exports = function(user) {
 };
 ```
 
-**/controllers/user.js**   
+**/views/adminTPL.html**
+
+```html
+<h3>Here, about the administration</h3>
+```
+
+**/controllers/users.js**  
    
 ```js
-module.exports = function(user) { 
+module.exports = function(user) {
     return {
-        "news": {
+        "users": {
             title: 'Users',
             submenu : 'Users',
             order: 1,
             method: function(req, res, next) {
-                res.render('newsTPL');
+                res.render('userTPL', {});
                 next();
             }
         }
     };
 };
 ```
+
+**/views/userTPL.html**
+
+```html
+<h3>Here, about the users</h3>
+```
+
+**Result:**
+![Cabmin screenshot](https://raw.githubusercontent.com/mirrr/cabmin/master/cb-public/img/submenu.jpg)
+
 ## Examples
 Coming soon...
+   
    
 ## People
 

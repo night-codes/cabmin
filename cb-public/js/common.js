@@ -36,6 +36,8 @@ $(function () {
 		if (!ev) ev = window.event;
 		ev.cancelBubble = true;
 		if (ev.stopPropagation) ev.stopPropagation();
+		ev.preventDefault();
+		return;
 	})
 	$('body').click(function(event) {
 		 $('.dropdown-menu').slideUp(300);
